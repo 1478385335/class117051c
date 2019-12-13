@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- heart 是组件的一个属性，那么组件必须通过props声明这个属性 -->
+     <!-- <guolele v-bind:heart="article"></guolele>
+     <guolele v-bind:heart="article2"></guolele> -->
+     <guolele v-for="article in articleList" :key="article.title":heart="article"></guolele>
+     </p>  
+    </div>
+    <script>
+        //定义guolele这个自定义组件
+        //第一个参数是自定义组件的标签名称，第二参数是定义该组件的运行规则对象
+        Vue.component('guolele',{
+            props:['heart'],
+            //template定义的是组建的模板，也就是heml和{}以及vue指令的组合
+            //teplate必须有根标签 例如〈h1〉<h2>不合法，<div><h1></h1><h2></h2></div>合法的
+            template:'<div>'+
+                    '<h1>{{heart.title}}</h1>'+
+                    '<h2>{{heart.author}}</h2>'+
+                    '<h3>{{heart.publishDate}}</h3>'+
+                    '<p>{{heart.content}}</p>'+
+                    '</div>'
+        });
+        var app =new Vue({
+            el:"#app",
+            data:{
+                articleList:[
+                {
+                    title:"《论帅哥的自我修养》",
+                    author:"作者：过了了",
+                    publishDate:"2019-11-20",
+                    content:"dfhaksfjhksfhaksfhksha开始的粉红丝带凤凰山打算阿斯兰发挥阿什福四方大脸快速发射饭卡打发基利科夫哈发挥看啊粉红色开发",
+                    
+                },
+                {
+                    title:"《论美女的吃饱了，没事》",
+                    author:"作者：过了了",
+                    publishDate:"2019-11-20",
+                    content:"dfhaksfjhksfhaksfhksha开始的粉红丝带凤凰山打算阿斯兰发挥阿什福四方大脸快速发射饭卡打发基利科夫哈发挥看啊粉红色开发",
+                    
+                },
+                {
+                    title:"《论没事》",
+                    author:"作者：过了了",
+                    publishDate:"2019-11-20",
+                    content:"dfhaksfjhksfhaksfhksha开始的粉红丝带凤凰山打算阿斯兰发挥阿什福四方大脸快速发射饭卡打发基利科夫哈发挥看啊粉红色开发",
+                    
+                },
+                {
+                    title:"《论美女的吃饱了》",
+                    author:"作者：过了了",
+                    publishDate:"2019-11-20",
+                    content:"dfhaksfjhksfhaksfhksha开始的粉红丝带凤凰山打算阿斯兰发挥阿什福四方大脸快速发射饭卡打发基利科夫哈发挥看啊粉红色开发",
+                    
+                },
+
+                ]
+               
+               
+        }
+        })
+    </script>
+
+    
+    
+</body>
+</html>
